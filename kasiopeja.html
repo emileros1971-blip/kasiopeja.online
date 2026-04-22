@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kasiopeja - Avio Putovanja</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --navy: #1a2a4a;
+    --blue: #1e6bb8;
+    --ocean: #3399cc;
+    --orange: #e87820;
+    --gold: #f5a623;
+    --white: #ffffff;
+    --light: #f0f7ff;
+    --text: #1a2a4a;
+    --muted: #5a7a9a;
+  }
+  body { font-family: 'Nunito', sans-serif; color: var(--text); overflow-x: hidden; }
+
+  /* NAV */
+  nav {
+    background: var(--navy);
+    padding: 14px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .nav-brand { display: flex; align-items: center; gap: 12px; }
+  .nav-logo-circle {
+    width: 46px; height: 46px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--orange), var(--gold));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+  }
+  .nav-name { color: white; font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; line-height: 1.1; }
+  .nav-sub { color: var(--ocean); font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; }
+  .nav-links { display: flex; gap: 28px; align-items: center; }
+  .nav-links a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; font-weight: 600; transition: color .2s; }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-ig {
+    display: flex; align-items: center; gap: 7px;
+    color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; font-weight: 600;
+    background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    transition: opacity .2s;
+  }
+  .nav-ig:hover { opacity: 0.8; }
+  .nav-ig svg { flex-shrink: 0; }
+  .nav-cta {
+    background: var(--orange); color: white; border: none; padding: 10px 22px;
+    border-radius: 25px; font-size: 14px; font-weight: 700; cursor: pointer; transition: background .2s;
+    text-decoration: none; display: inline-block;
+  }
+  .nav-cta:hover { background: var(--gold); }
+
+  /* HERO */
+  .hero {
+    position: relative;
+    background: linear-gradient(160deg, var(--navy) 0%, #0d3a6e 50%, #0a2a50 100%);
+    min-height: 520px;
+    display: flex; align-items: center;
+    overflow: hidden;
+    padding: 60px 40px;
+  }
+  .hero-bg-plane {
+    position: absolute; right: 40px; top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.055;
+    animation: drift 8s ease-in-out infinite;
+  }
+  @keyframes drift { 0%,100%{transform:translateY(-50%) translateX(0)} 50%{transform:translateY(-52%) translateX(-20px)} }
+  .hero-wave {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    height: 80px; background: var(--light);
+    clip-path: ellipse(55% 100% at 50% 100%);
+  }
+  .hero-content { position: relative; z-index: 2; max-width: 620px; }
+  .hero-badge {
+    display: inline-block;
+    background: rgba(232,120,32,0.2);
+    border: 1px solid var(--orange);
+    color: var(--gold);
+    font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+    padding: 6px 16px; border-radius: 20px; margin-bottom: 20px;
+  }
+  .hero h1 { font-family: 'Playfair Display', serif; font-size: 52px; font-weight: 700; color: white; line-height: 1.15; margin-bottom: 18px; }
+  .hero h1 span { color: var(--gold); }
+  .hero p { color: rgba(255,255,255,0.75); font-size: 18px; line-height: 1.7; margin-bottom: 30px; max-width: 500px; }
+  .hero-buttons { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+  .btn-primary {
+    background: linear-gradient(135deg, var(--orange), var(--gold));
+    color: white; border: none; padding: 14px 30px;
+    border-radius: 30px; font-size: 15px; font-weight: 700; cursor: pointer;
+    transition: transform .2s, box-shadow .2s; text-decoration: none; display: inline-block;
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(232,120,32,0.4); }
+  .btn-outline {
+    background: transparent; color: white;
+    border: 2px solid rgba(255,255,255,0.4); padding: 14px 30px;
+    border-radius: 30px; font-size: 15px; font-weight: 700; cursor: pointer;
+    transition: border-color .2s, background .2s; text-decoration: none; display: inline-block;
+  }
+  .btn-outline:hover { border-color: white; background: rgba(255,255,255,0.1); }
+  .btn-instagram {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+    color: white; padding: 14px 24px;
+    border-radius: 30px; font-size: 15px; font-weight: 700;
+    text-decoration: none; transition: transform .2s, box-shadow .2s;
+  }
+  .btn-instagram:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(131,58,180,0.4); }
+
+  /* STATS BAR */
+  .stats-bar {
+    background: var(--orange);
+    display: flex; justify-content: center; gap: 60px;
+    padding: 18px 40px; flex-wrap: wrap;
+  }
+  .stat { text-align: center; color: white; }
+  .stat-num { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 700; }
+  .stat-label { font-size: 12px; font-weight: 600; opacity: 0.85; letter-spacing: 1px; text-transform: uppercase; }
+
+  /* SECTIONS */
+  .section { padding: 70px 40px; }
+  .section-light { background: var(--light); }
+  .section-white { background: white; }
+  .section-navy { background: var(--navy); }
+  .section-header { text-align: center; margin-bottom: 50px; }
+  .section-tag { color: var(--orange); font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 700; color: var(--navy); }
+  .section-navy .section-title { color: white; }
+  .section-navy .section-tag { color: var(--gold); }
+
+  /* FEATURES */
+  .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 28px; }
+  .feature-card {
+    background: white; border-radius: 16px; padding: 28px 22px; text-align: center;
+    border: 1px solid rgba(30,107,184,0.12);
+    transition: transform .2s, box-shadow .2s;
+  }
+  .feature-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(30,107,184,0.12); }
+  .feature-icon {
+    width: 60px; height: 60px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--blue), var(--ocean));
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 16px; font-size: 26px;
+  }
+  .feature-title { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+  .feature-desc { font-size: 14px; color: var(--muted); line-height: 1.6; }
+
+  /* DESTINATIONS */
+  .destinations-container { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+  .dest-group { background: white; border-radius: 20px; overflow: hidden; border: 1px solid rgba(30,107,184,0.12); }
+  .dest-header { padding: 20px 24px; display: flex; align-items: center; gap: 12px; }
+  .dest-from-nis { background: linear-gradient(135deg, var(--navy), #2a4a8a); }
+  .dest-from-beo { background: linear-gradient(135deg, #0d3a6e, var(--blue)); }
+  .dest-header-icon { font-size: 28px; }
+  .dest-header-title { color: white; font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; }
+  .dest-header-sub { color: rgba(255,255,255,0.7); font-size: 12px; }
+  .dest-list { padding: 16px 24px; }
+  .dest-item {
+    display: flex; align-items: center; gap: 10px;
+    padding: 9px 0; border-bottom: 1px solid rgba(30,107,184,0.08);
+    font-size: 14px; color: var(--text); font-weight: 600; transition: color .2s;
+  }
+  .dest-item:last-child { border-bottom: none; }
+  .dest-item:hover { color: var(--blue); }
+  .dest-dot { width: 8px; height: 8px; border-radius: 50%; background: linear-gradient(135deg, var(--orange), var(--gold)); flex-shrink: 0; }
+
+  /* INSTAGRAM BANNER */
+  .ig-banner {
+    background: linear-gradient(135deg, #833ab4 0%, #fd1d1d 50%, #fcb045 100%);
+    padding: 50px 40px; text-align: center;
+  }
+  .ig-banner h2 { font-family: 'Playfair Display', serif; font-size: 32px; color: white; margin-bottom: 12px; }
+  .ig-banner p { color: rgba(255,255,255,0.85); font-size: 16px; margin-bottom: 28px; }
+  .ig-follow-btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: white; color: #833ab4;
+    padding: 16px 36px; border-radius: 40px;
+    font-size: 17px; font-weight: 700; text-decoration: none;
+    transition: transform .2s, box-shadow .2s;
+  }
+  .ig-follow-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,0.25); }
+
+  /* CONTACT */
+  .contact-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 50px; align-items: start; }
+  .contact-info h3 { font-family: 'Playfair Display', serif; font-size: 28px; color: white; margin-bottom: 14px; }
+  .contact-info p { color: rgba(255,255,255,0.7); font-size: 15px; line-height: 1.7; margin-bottom: 28px; }
+  .contact-detail { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+  .contact-detail-icon {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center;
+    font-size: 18px; flex-shrink: 0;
+  }
+  .contact-detail-text { color: white; font-weight: 600; font-size: 14px; }
+  .contact-detail-label { color: rgba(255,255,255,0.5); font-size: 12px; }
+  .contact-ig-link {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+    color: white; padding: 10px 20px; border-radius: 20px;
+    font-size: 13px; font-weight: 700; text-decoration: none; margin-top: 8px;
+    transition: opacity .2s;
+  }
+  .contact-ig-link:hover { opacity: 0.85; }
+
+  .contact-form { background: white; border-radius: 20px; padding: 36px; box-shadow: 0 20px 60px rgba(0,0,0,0.2); }
+  .form-title { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--navy); margin-bottom: 22px; }
+  .form-group { margin-bottom: 16px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .form-label { display: block; font-size: 13px; font-weight: 700; color: var(--muted); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .form-input, .form-select, .form-textarea {
+    width: 100%; padding: 12px 14px; border-radius: 10px;
+    border: 1.5px solid #dde8f5; font-family: 'Nunito', sans-serif;
+    font-size: 14px; color: var(--text); background: #f8fbff;
+    transition: border-color .2s, background .2s; outline: none;
+  }
+  .form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--blue); background: white; }
+  .form-textarea { min-height: 100px; resize: vertical; }
+  .form-submit {
+    width: 100%; padding: 15px; border: none; border-radius: 12px;
+    background: linear-gradient(135deg, var(--orange), var(--gold));
+    color: white; font-family: 'Nunito', sans-serif;
+    font-size: 16px; font-weight: 700; cursor: pointer;
+    margin-top: 6px; transition: transform .2s, box-shadow .2s;
+  }
+  .form-submit:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(232,120,32,0.4); }
+  .form-note { font-size: 12px; color: var(--muted); text-align: center; margin-top: 10px; }
+  .success-msg {
+    display: none; text-align: center; padding: 24px;
+    background: #f0fff4; border-radius: 12px; border: 1.5px solid #48bb78; margin-top: 16px;
+  }
+  .success-msg.show { display: block; }
+  .success-icon { font-size: 36px; margin-bottom: 8px; }
+  .success-text { color: #276749; font-weight: 700; font-size: 16px; }
+
+  /* FOOTER */
+  footer {
+    background: #0d1f3a;
+    padding: 30px 40px;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 16px;
+  }
+  .footer-brand { color: rgba(255,255,255,0.5); font-size: 13px; }
+  .footer-brand strong { color: var(--gold); }
+  .footer-links { display: flex; gap: 20px; align-items: center; }
+  .footer-links a { color: rgba(255,255,255,0.4); font-size: 13px; text-decoration: none; transition: color .2s; }
+  .footer-links a:hover { color: var(--gold); }
+  .footer-ig {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    font-weight: 700; font-size: 13px; text-decoration: none;
+  }
+
+  @media (max-width: 768px) {
+    nav { padding: 12px 16px; }
+    .nav-links { display: none; }
+    .hero { padding: 40px 20px; }
+    .hero h1 { font-size: 34px; }
+    .section { padding: 50px 20px; }
+    .destinations-container { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .stats-bar { gap: 24px; }
+    footer { flex-direction: column; text-align: center; padding: 24px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">
+    <div class="nav-logo-circle">✈</div>
+    <div>
+      <div class="nav-name">Kasiopeja</div>
+      <div class="nav-sub">Avio Putovanja</div>
+    </div>
+  </div>
+  <div class="nav-links">
+    <a href="#destinations">Destinacije</a>
+    <a href="#why">Zašto Mi</a>
+    <a href="#contact">Kontakt</a>
+    <a class="nav-ig" href="https://www.instagram.com/kasiopejaavioputovanja?igsh=YWxyZ3dhcmJrZmho&utm_source=qr" target="_blank" rel="noopener">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="url(#ig-grad-nav)" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="ig-grad-nav" x1="0%" y1="100%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#fcb045"/>
+            <stop offset="50%" style="stop-color:#fd1d1d"/>
+            <stop offset="100%" style="stop-color:#833ab4"/>
+          </linearGradient>
+        </defs>
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="url(#ig-grad-nav)" stroke-width="2" fill="none"/>
+        <circle cx="12" cy="12" r="4" stroke="url(#ig-grad-nav)" stroke-width="2" fill="none"/>
+        <circle cx="17.5" cy="6.5" r="1.2" fill="url(#ig-grad-nav)"/>
+      </svg>
+      Instagram
+    </a>
+  </div>
+  <a class="nav-cta" href="#contact">Pošalji Upit ✈</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <svg class="hero-bg-plane" width="420" height="320" viewBox="0 0 420 320" fill="white" xmlns="http://www.w3.org/2000/svg">
+    <path d="M400 155 L20 50 L80 155 L20 260 Z"/>
+    <path d="M80 155 L220 110 L240 140 Z"/>
+    <path d="M80 155 L220 200 L240 170 Z"/>
+    <path d="M110 148 L165 90 L185 120 Z"/>
+  </svg>
+  <div class="hero-content">
+    <div class="hero-badge">✈ Stručnjaci za najniže avio karte</div>
+    <h1>Letite dalje.<br><span>Platite manje.</span></h1>
+    <p>Svakodnevno pronalazimo najpovoljnije avio karte iz Beograda i Niša. Brza rezervacija, proverene opcije i podrška na svakom koraku vašeg putovanja.</p>
+    <div class="hero-buttons">
+      <a class="btn-primary" href="#contact">Tražite avionsku kartu ✈</a>
+      <a class="btn-outline" href="#destinations">Naše destinacije</a>
+      <a class="btn-instagram" href="https://www.instagram.com/kasiopejaavioputovanja?igsh=YWxyZ3dhcmJrZmho&utm_source=qr" target="_blank" rel="noopener">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="white" stroke-width="2" fill="none"/>
+          <circle cx="12" cy="12" r="4" stroke="white" stroke-width="2" fill="none"/>
+          <circle cx="17.5" cy="6.5" r="1.2" fill="white"/>
+        </svg>
+        Pratite nas
+      </a>
+    </div>
+  </div>
+  <div class="hero-wave"></div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stat"><div class="stat-num">500+</div><div class="stat-label">destinacija</div></div>
+  <div class="stat"><div class="stat-num">24h</div><div class="stat-label">brza rezervacija</div></div>
+  <div class="stat"><div class="stat-num">2</div><div class="stat-label">polazišta</div></div>
+  <div class="stat"><div class="stat-num">100%</div><div class="stat-label">proverene ponude</div></div>
+</div>
+
+<!-- WHY US -->
+<section class="section section-light" id="why">
+  <div class="section-header">
+    <div class="section-tag">Zašto Kasiopeja</div>
+    <div class="section-title">Specijalisti za povoljne avio karte</div>
+  </div>
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="feature-icon">💰</div>
+      <div class="feature-title">Najniže cene</div>
+      <div class="feature-desc">Specijalizovani za pronalaženje najjeftinijih karata — svakodnevno pretražujemo stotine ponuda umesto vas.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">⚡</div>
+      <div class="feature-title">Brza rezervacija</div>
+      <div class="feature-desc">Od upita do potvrđene karte za kratko vreme. Bez čekanja, bez komplikacija.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🛡️</div>
+      <div class="feature-title">Proverene opcije</div>
+      <div class="feature-desc">Radimo samo sa pouzdanim aviokompanijama. Vaša karta je garantovana.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🤝</div>
+      <div class="feature-title">Podrška na svakom koraku</div>
+      <div class="feature-desc">Tu smo pre, tokom i posle putovanja. Uvek dostupni za pitanja i izmene.</div>
+    </div>
+  </div>
+</section>
+
+<!-- DESTINATIONS -->
+<section class="section section-white" id="destinations">
+  <div class="section-header">
+    <div class="section-tag">Gde letimo</div>
+    <div class="section-title">Najtražene destinacije</div>
+  </div>
+  <div class="destinations-container">
+    <div class="dest-group">
+      <div class="dest-header dest-from-nis">
+        <div class="dest-header-icon">✈</div>
+        <div>
+          <div class="dest-header-title">Iz Niša</div>
+          <div class="dest-header-sub">Direktni i transferni letovi</div>
+        </div>
+      </div>
+      <div class="dest-list">
+        <div class="dest-item"><div class="dest-dot"></div>Malta</div>
+        <div class="dest-item"><div class="dest-dot"></div>Beč</div>
+        <div class="dest-item"><div class="dest-dot"></div>Minhen</div>
+        <div class="dest-item"><div class="dest-dot"></div>Stokholm</div>
+        <div class="dest-item"><div class="dest-dot"></div>Istanbul</div>
+        <div class="dest-item"><div class="dest-dot"></div>Bazel / Kolmar</div>
+        <div class="dest-item"><div class="dest-dot"></div>Dortmund</div>
+        <div class="dest-item"><div class="dest-dot"></div>Tivat</div>
+        <div class="dest-item"><div class="dest-dot"></div>Krf</div>
+      </div>
+    </div>
+    <div class="dest-group">
+      <div class="dest-header dest-from-beo">
+        <div class="dest-header-icon">✈</div>
+        <div>
+          <div class="dest-header-title">Iz Beograda</div>
+          <div class="dest-header-sub">Direktni i transferni letovi</div>
+        </div>
+      </div>
+      <div class="dest-list">
+        <div class="dest-item"><div class="dest-dot"></div>Malta</div>
+        <div class="dest-item"><div class="dest-dot"></div>Kipar</div>
+        <div class="dest-item"><div class="dest-dot"></div>Sardinija (Algero)</div>
+        <div class="dest-item"><div class="dest-dot"></div>Sicilija (Palermo)</div>
+        <div class="dest-item"><div class="dest-dot"></div>Piza (Toskana)</div>
+        <div class="dest-item"><div class="dest-dot"></div>Rim</div>
+        <div class="dest-item"><div class="dest-dot"></div>Milano</div>
+        <div class="dest-item"><div class="dest-dot"></div>Minhen</div>
+        <div class="dest-item"><div class="dest-dot"></div>Dortmund</div>
+        <div class="dest-item"><div class="dest-dot"></div>Berlin</div>
+        <div class="dest-item"><div class="dest-dot"></div>Hamburg</div>
+        <div class="dest-item"><div class="dest-dot"></div>Stokholm</div>
+        <div class="dest-item"><div class="dest-dot"></div>Geteborg</div>
+        <div class="dest-item"><div class="dest-dot"></div>Barselona</div>
+        <div class="dest-item"><div class="dest-dot"></div>Madrid</div>
+        <div class="dest-item"><div class="dest-dot"></div>Alikante</div>
+        <div class="dest-item"><div class="dest-dot"></div>Krit</div>
+        <div class="dest-item"><div class="dest-dot"></div>Malmo</div>
+        <div class="dest-item"><div class="dest-dot"></div>Nica</div>
+        <div class="dest-item"><div class="dest-dot"></div>Pariz</div>
+        <div class="dest-item"><div class="dest-dot"></div>Grenoble</div>
+        <div class="dest-item"><div class="dest-dot"></div>London</div>
+        <div class="dest-item"><div class="dest-dot"></div>Eindhoven</div>
+        <div class="dest-item"><div class="dest-dot"></div>Bazel</div>
+        <div class="dest-item"><div class="dest-dot"></div>Ženeva</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INSTAGRAM BANNER -->
+<section class="ig-banner">
+  <h2>📸 Pratite nas na Instagramu</h2>
+  <p>Svakodnevne ponude, last-minute karte i putničke inspiracije — sve na jednom mestu!</p>
+  <a class="ig-follow-btn" href="https://www.instagram.com/kasiopejaavioputovanja?igsh=YWxyZ3dhcmJrZmho&utm_source=qr" target="_blank" rel="noopener">
+    <svg width="22" height="22" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="ig-btn-grad" x1="0%" y1="100%" x2="100%" y2="0%">
+          <stop offset="0%" style="stop-color:#fcb045"/>
+          <stop offset="50%" style="stop-color:#fd1d1d"/>
+          <stop offset="100%" style="stop-color:#833ab4"/>
+        </linearGradient>
+      </defs>
+      <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="url(#ig-btn-grad)" stroke-width="2" fill="none"/>
+      <circle cx="12" cy="12" r="4" stroke="url(#ig-btn-grad)" stroke-width="2" fill="none"/>
+      <circle cx="17.5" cy="6.5" r="1.2" fill="url(#ig-btn-grad)"/>
+    </svg>
+    @kasiopejaavioputovanja
+  </a>
+</section>
+
+<!-- CONTACT -->
+<section class="section section-navy" id="contact">
+  <div class="contact-grid">
+    <div class="contact-info">
+      <div class="section-tag">Stupite u kontakt</div>
+      <h3>Pošaljite upit — odgovaramo brzo!</h3>
+      <p>Recite nam gde želite da putujete i kada — mi ćemo pronaći najpovoljniju kartu za vas. Nema obaveza, konsultacija je besplatna.</p>
+      <div class="contact-detail">
+        <div class="contact-detail-icon">📞</div>
+        <div>
+          <div class="contact-detail-label">Telefon / Viber / WhatsApp</div>
+          <div class="contact-detail-text">066 614 15 99</div>
+          <div class="contact-detail-text">060 602 04 22</div>
+        </div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-detail-icon">✉️</div>
+        <div>
+          <div class="contact-detail-label">Email</div>
+          <div class="contact-detail-text">andrijanajevtic2010@hotmail.com</div>
+        </div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-detail-icon" style="background:transparent; padding:0;">
+          <svg width="28" height="28" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="ig-contact" x1="0%" y1="100%" x2="100%" y2="0%">
+                <stop offset="0%" style="stop-color:#fcb045"/>
+                <stop offset="50%" style="stop-color:#fd1d1d"/>
+                <stop offset="100%" style="stop-color:#833ab4"/>
+              </linearGradient>
+            </defs>
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="url(#ig-contact)" stroke-width="2" fill="none"/>
+            <circle cx="12" cy="12" r="4" stroke="url(#ig-contact)" stroke-width="2" fill="none"/>
+            <circle cx="17.5" cy="6.5" r="1.2" fill="url(#ig-contact)"/>
+          </svg>
+        </div>
+        <div>
+          <div class="contact-detail-label">Instagram</div>
+          <a class="contact-ig-link" href="https://www.instagram.com/kasiopejaavioputovanja?igsh=YWxyZ3dhcmJrZmho&utm_source=qr" target="_blank" rel="noopener">
+            @kasiopejaavioputovanja
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-form">
+      <div class="form-title">Pošaljite upit za avionsku kartu ✈</div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Ime i prezime *</label>
+          <input type="text" class="form-input" id="f-name" placeholder="Vaše ime">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Telefon *</label>
+          <input type="tel" class="form-input" id="f-phone" placeholder="+381 ...">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Email adresa</label>
+        <input type="email" class="form-input" id="f-email" placeholder="vas@email.com">
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Polazište *</label>
+          <select class="form-select" id="f-from">
+            <option value="">Odaberite grad</option>
+            <option>Beograd</option>
+            <option>Niš</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Destinacija *</label>
+          <input type="text" class="form-input" id="f-dest" placeholder="npr. London">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Datum polaska</label>
+          <input type="date" class="form-input" id="f-date">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Broj putnika</label>
+          <select class="form-select" id="f-pax">
+            <option>1 putnik</option>
+            <option>2 putnika</option>
+            <option>3 putnika</option>
+            <option>4+ putnika</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Poruka / Napomena</label>
+        <textarea class="form-textarea" id="f-msg" placeholder="Povratna karta? Fleksibilan datum? Specifičan zahtev?"></textarea>
+      </div>
+      <button class="form-submit" onclick="sendInquiry()">Pošalji upit ✈</button>
+      <p class="form-note">Odgovaramo u roku od nekoliko sati &bull; Konsultacija je besplatna</p>
+      <div class="success-msg" id="success-msg">
+        <div class="success-icon">✅</div>
+        <div class="success-text">Hvala! Vaš upit je poslat. Kontaktiraćemo vas uskoro.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">© 2026 <strong>Kasiopeja Avio Putovanja</strong> — Specijalisti za najniže avio karte</div>
+  <div class="footer-links">
+    <a href="#destinations">Destinacije</a>
+    <a href="#contact">Kontakt</a>
+    <a class="footer-ig" href="https://www.instagram.com/kasiopejaavioputovanja?igsh=YWxyZ3dhcmJrZmho&utm_source=qr" target="_blank" rel="noopener">
+      <svg width="14" height="14" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="ig-footer" x1="0%" y1="100%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#fcb045"/>
+            <stop offset="50%" style="stop-color:#fd1d1d"/>
+            <stop offset="100%" style="stop-color:#833ab4"/>
+          </linearGradient>
+        </defs>
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="url(#ig-footer)" stroke-width="2" fill="none"/>
+        <circle cx="12" cy="12" r="4" stroke="url(#ig-footer)" stroke-width="2" fill="none"/>
+        <circle cx="17.5" cy="6.5" r="1.2" fill="url(#ig-footer)"/>
+      </svg>
+      Instagram
+    </a>
+  </div>
+</footer>
+
+<script>
+function sendInquiry() {
+  var name = document.getElementById('f-name').value.trim();
+  var phone = document.getElementById('f-phone').value.trim();
+  var email = document.getElementById('f-email').value.trim();
+  var from = document.getElementById('f-from').value;
+  var dest = document.getElementById('f-dest').value.trim();
+  var date = document.getElementById('f-date').value;
+  var pax = document.getElementById('f-pax').value;
+  var msg = document.getElementById('f-msg').value.trim();
+
+  if (!name || !phone || !from || !dest) {
+    alert('Molimo popunite obavezna polja: ime, telefon, polazište i destinacija.');
+    return;
+  }
+
+  var subject = encodeURIComponent('Upit za avionsku kartu - ' + from + ' \u2192 ' + dest);
+  var body = encodeURIComponent(
+    'Poštovani,\n\nŠaljem upit za avionsku kartu:\n\n' +
+    'Ime i prezime: ' + name + '\n' +
+    'Telefon: ' + phone + '\n' +
+    'Email: ' + (email || 'nije uneto') + '\n' +
+    'Polazište: ' + from + '\n' +
+    'Destinacija: ' + dest + '\n' +
+    'Datum polaska: ' + (date || 'fleksibilan') + '\n' +
+    'Broj putnika: ' + pax + '\n' +
+    'Napomena: ' + (msg || '—') + '\n\n' +
+    'Srdačan pozdrav,\n' + name
+  );
+
+  window.location.href = 'mailto:andrijanajevtic2010@hotmail.com?subject=' + subject + '&body=' + body;
+  document.getElementById('success-msg').classList.add('show');
+}
+</script>
+</body>
+</html>
