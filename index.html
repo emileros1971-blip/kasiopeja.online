@@ -457,6 +457,21 @@
       <div class="feature-title">Podrška na svakom koraku</div>
       <div class="feature-desc">Tu smo pre, tokom i posle putovanja. Uvek dostupni za pitanja i izmene.</div>
     </div>
+    <div class="feature-card">
+      <div class="feature-icon">🎫</div>
+      <div class="feature-title">U cenu je uključeno</div>
+      <div class="feature-desc">Povratna avio karta, aerodromske takse, ručni prtljag i usluga čekiranja karata u oba pravca.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🚐</div>
+      <div class="feature-title">Dodatne usluge agencije</div>
+      <div class="feature-desc">Pored avio karata, organizujemo transfere od i do aerodroma, izlete, kao i ulaznice za atrakcije i muzeje.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🌐</div>
+      <div class="feature-title">Direktni i povezani letovi</div>
+      <div class="feature-desc">Radimo i letove sa presedanjem, daleke destinacije, kao i direktne letove za Njujork, Toronto, London i Kinu.</div>
+    </div>
   </div>
 </section>
 
@@ -464,18 +479,320 @@
 <section class="section section-white" id="destinations">
   <div class="section-header">
     <div class="section-tag">Odakle letimo</div>
-    <div class="section-title">Gradovi polaska</div>
+    <div class="section-title">Gradovi polaska i destinacije</div>
   </div>
-  <div class="cities-grid">
-    <div class="city-pill">✈ Beograd</div>
-    <div class="city-pill">✈ Niš</div>
-    <div class="city-pill">✈ Skoplje</div>
-    <div class="city-pill">✈ Zagreb</div>
-    <div class="city-pill">✈ Budimpešta</div>
-    <div class="city-pill">✈ Temišvar</div>
-    <div class="city-pill">✈ Sofija</div>
-    <div class="city-pill">✈ Podgorica</div>
+
+  <div class="dest-tabs">
+    <button class="dest-tab active" type="button" onclick="showCity('sofija', this)">Sofija</button>
+    <button class="dest-tab" type="button" onclick="showCity('temisvar', this)">Temišvar</button>
+    <button class="dest-tab" type="button" onclick="showCity('skoplje', this)">Skoplje</button>
+    <button class="dest-tab" type="button" onclick="showCity('podgorica', this)">Podgorica</button>
+    <button class="dest-tab" type="button" onclick="showCity('budimpesta', this)">Budimpešta</button>
+    <button class="dest-tab" type="button" onclick="showCity('zagreb', this)">Zagreb</button>
+    <button class="dest-tab" type="button" onclick="showCity('nis', this)">Niš</button>
+    <button class="dest-tab" type="button" onclick="showCity('beograd', this)">Beograd</button>
   </div>
+
+    <div class="dest-panel active" id="panel-sofija">
+      <div class="dest-card">
+        <div class="dest-header dest-from-color">
+          <div class="dest-header-icon">✈</div>
+          <div>
+            <div class="dest-header-title">Iz Sofija</div>
+            <div class="dest-header-sub">Dostupne destinacije</div>
+          </div>
+        </div>
+        <div class="dest-list">
+        <div class="dest-item"><span class="dest-dot"></span>Alikante</div>
+        <div class="dest-item"><span class="dest-dot"></span>Barselona</div>
+        <div class="dest-item"><span class="dest-dot"></span>Bari</div>
+        <div class="dest-item"><span class="dest-dot"></span>Berlin</div>
+        <div class="dest-item"><span class="dest-dot"></span>Bolonja</div>
+        <div class="dest-item"><span class="dest-dot"></span>Brisel</div>
+        <div class="dest-item"><span class="dest-dot"></span>Budimpešta</div>
+        <div class="dest-item"><span class="dest-dot"></span>Katanija</div>
+        <div class="dest-item"><span class="dest-dot"></span>Hanja (Krit)</div>
+        <div class="dest-item"><span class="dest-dot"></span>Keln</div>
+        <div class="dest-item"><span class="dest-dot"></span>Krf</div>
+        <div class="dest-item"><span class="dest-dot"></span>Kopenhagen</div>
+        <div class="dest-item"><span class="dest-dot"></span>Edinburg</div>
+        <div class="dest-item"><span class="dest-dot"></span>Eindhoven</div>
+        <div class="dest-item"><span class="dest-dot"></span>Frankfurt</div>
+        <div class="dest-item"><span class="dest-dot"></span>Krakov</div>
+        <div class="dest-item"><span class="dest-dot"></span>Lamezia</div>
+        <div class="dest-item"><span class="dest-dot"></span>Madrid</div>
+        <div class="dest-item"><span class="dest-dot"></span>Malaga</div>
+        <div class="dest-item"><span class="dest-dot"></span>Malta</div>
+        <div class="dest-item"><span class="dest-dot"></span>Marakeš</div>
+        <div class="dest-item"><span class="dest-dot"></span>Memmingen</div>
+        <div class="dest-item"><span class="dest-dot"></span>Milano</div>
+        <div class="dest-item"><span class="dest-dot"></span>Napulj</div>
+        <div class="dest-item"><span class="dest-dot"></span>Palma de Majorka</div>
+        <div class="dest-item"><span class="dest-dot"></span>Pafos</div>
+        <div class="dest-item"><span class="dest-dot"></span>Pariz</div>
+        <div class="dest-item"><span class="dest-dot"></span>Piza</div>
+        <div class="dest-item"><span class="dest-dot"></span>Rodos</div>
+        <div class="dest-item"><span class="dest-dot"></span>Rim</div>
+        <div class="dest-item"><span class="dest-dot"></span>Skijatos</div>
+        <div class="dest-item"><span class="dest-dot"></span>Torino</div>
+        <div class="dest-item"><span class="dest-dot"></span>Valensija</div>
+        <div class="dest-item"><span class="dest-dot"></span>Venecija</div>
+        <div class="dest-item"><span class="dest-dot"></span>Beč</div>
+        <div class="dest-item"><span class="dest-dot"></span>Varšava</div>
+        <div class="dest-item"><span class="dest-dot"></span>Zadar</div>
+        <div class="dest-item"><span class="dest-dot"></span>Zagreb</div>
+        <div class="dest-item"><span class="dest-dot"></span>Larnaka</div>
+        <div class="dest-item"><span class="dest-dot"></span>Prag</div>
+        <div class="dest-item"><span class="dest-dot"></span>Hurgada</div>
+        <div class="dest-item"><span class="dest-dot"></span>Palermo</div>
+        <div class="dest-item"><span class="dest-dot"></span>Bazel</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dest-panel" id="panel-temisvar">
+      <div class="dest-card">
+        <div class="dest-header dest-from-color">
+          <div class="dest-header-icon">✈</div>
+          <div>
+            <div class="dest-header-title">Iz Temišvar</div>
+            <div class="dest-header-sub">Dostupne destinacije</div>
+          </div>
+        </div>
+        <div class="dest-list">
+        <div class="dest-item"><span class="dest-dot"></span>Brisel</div>
+        <div class="dest-item"><span class="dest-dot"></span>Larnaka</div>
+        <div class="dest-item"><span class="dest-dot"></span>Prag</div>
+        <div class="dest-item"><span class="dest-dot"></span>Pariz</div>
+        <div class="dest-item"><span class="dest-dot"></span>Berlin</div>
+        <div class="dest-item"><span class="dest-dot"></span>Frankfurt</div>
+        <div class="dest-item"><span class="dest-dot"></span>Zakintos</div>
+        <div class="dest-item"><span class="dest-dot"></span>Bolonja</div>
+        <div class="dest-item"><span class="dest-dot"></span>Milano</div>
+        <div class="dest-item"><span class="dest-dot"></span>Napulj</div>
+        <div class="dest-item"><span class="dest-dot"></span>Venecija</div>
+        <div class="dest-item"><span class="dest-dot"></span>Barselona</div>
+        <div class="dest-item"><span class="dest-dot"></span>Madrid</div>
+        <div class="dest-item"><span class="dest-dot"></span>Valensija</div>
+        <div class="dest-item"><span class="dest-dot"></span>Bazel</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dest-panel" id="panel-skoplje">
+      <div class="dest-card">
+        <div class="dest-header dest-from-color">
+          <div class="dest-header-icon">✈</div>
+          <div>
+            <div class="dest-header-title">Iz Skoplje</div>
+            <div class="dest-header-sub">Dostupne destinacije</div>
+          </div>
+        </div>
+        <div class="dest-list">
+        <div class="dest-item"><span class="dest-dot"></span>Brisel</div>
+        <div class="dest-item"><span class="dest-dot"></span>Larnaka</div>
+        <div class="dest-item"><span class="dest-dot"></span>Prag</div>
+        <div class="dest-item"><span class="dest-dot"></span>Sardinija</div>
+        <div class="dest-item"><span class="dest-dot"></span>Bari</div>
+        <div class="dest-item"><span class="dest-dot"></span>Bolonja</div>
+        <div class="dest-item"><span class="dest-dot"></span>Napulj</div>
+        <div class="dest-item"><span class="dest-dot"></span>Milano</div>
+        <div class="dest-item"><span class="dest-dot"></span>Rim</div>
+        <div class="dest-item"><span class="dest-dot"></span>Palermo</div>
+        <div class="dest-item"><span class="dest-dot"></span>Venecija</div>
+        <div class="dest-item"><span class="dest-dot"></span>Malta</div>
+        <div class="dest-item"><span class="dest-dot"></span>Oslo</div>
+        <div class="dest-item"><span class="dest-dot"></span>Bratislava</div>
+        <div class="dest-item"><span class="dest-dot"></span>Ljubljana</div>
+        <div class="dest-item"><span class="dest-dot"></span>Barselona</div>
+        <div class="dest-item"><span class="dest-dot"></span>Madrid</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dest-panel" id="panel-podgorica">
+      <div class="dest-card">
+        <div class="dest-header dest-from-color">
+          <div class="dest-header-icon">✈</div>
+          <div>
+            <div class="dest-header-title">Iz Podgorica</div>
+            <div class="dest-header-sub">Dostupne destinacije</div>
+          </div>
+        </div>
+        <div class="dest-list">
+        <div class="dest-item"><span class="dest-dot"></span>Bazel</div>
+        <div class="dest-item"><span class="dest-dot"></span>Pariz</div>
+        <div class="dest-item"><span class="dest-dot"></span>Keln</div>
+        <div class="dest-item"><span class="dest-dot"></span>Minhen</div>
+        <div class="dest-item"><span class="dest-dot"></span>Hamburg</div>
+        <div class="dest-item"><span class="dest-dot"></span>Dortmund</div>
+        <div class="dest-item"><span class="dest-dot"></span>Katanija</div>
+        <div class="dest-item"><span class="dest-dot"></span>Budimpešta</div>
+        <div class="dest-item"><span class="dest-dot"></span>Milano</div>
+        <div class="dest-item"><span class="dest-dot"></span>Rim</div>
+        <div class="dest-item"><span class="dest-dot"></span>Poznanj</div>
+        <div class="dest-item"><span class="dest-dot"></span>Varšava</div>
+        <div class="dest-item"><span class="dest-dot"></span>Ljubljana</div>
+        <div class="dest-item"><span class="dest-dot"></span>Barselona</div>
+        <div class="dest-item"><span class="dest-dot"></span>Malme</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dest-panel" id="panel-budimpesta">
+      <div class="dest-card">
+        <div class="dest-header dest-from-color">
+          <div class="dest-header-icon">✈</div>
+          <div>
+            <div class="dest-header-title">Iz Budimpešta</div>
+            <div class="dest-header-sub">Dostupne destinacije</div>
+          </div>
+        </div>
+        <div class="dest-list">
+        <div class="dest-item"><span class="dest-dot"></span>Abu Dabi</div>
+        <div class="dest-item"><span class="dest-dot"></span>Dubai</div>
+        <div class="dest-item"><span class="dest-dot"></span>Ankara</div>
+        <div class="dest-item"><span class="dest-dot"></span>Istanbul</div>
+        <div class="dest-item"><span class="dest-dot"></span>Bazel</div>
+        <div class="dest-item"><span class="dest-dot"></span>Stokholm</div>
+        <div class="dest-item"><span class="dest-dot"></span>Alikante</div>
+        <div class="dest-item"><span class="dest-dot"></span>Barselona</div>
+        <div class="dest-item"><span class="dest-dot"></span>Valensija</div>
+        <div class="dest-item"><span class="dest-dot"></span>Madrid</div>
+        <div class="dest-item"><span class="dest-dot"></span>Malaga</div>
+        <div class="dest-item"><span class="dest-dot"></span>Tenerife</div>
+        <div class="dest-item"><span class="dest-dot"></span>Gran Kanarija</div>
+        <div class="dest-item"><span class="dest-dot"></span>Lisabon</div>
+        <div class="dest-item"><span class="dest-dot"></span>Varšava</div>
+        <div class="dest-item"><span class="dest-dot"></span>Skoplje</div>
+        <div class="dest-item"><span class="dest-dot"></span>Marakeš</div>
+        <div class="dest-item"><span class="dest-dot"></span>Malta</div>
+        <div class="dest-item"><span class="dest-dot"></span>Aman (Jordan)</div>
+        <div class="dest-item"><span class="dest-dot"></span>Sardinija</div>
+        <div class="dest-item"><span class="dest-dot"></span>Milano</div>
+        <div class="dest-item"><span class="dest-dot"></span>Rim</div>
+        <div class="dest-item"><span class="dest-dot"></span>Napulj</div>
+        <div class="dest-item"><span class="dest-dot"></span>Venecija</div>
+        <div class="dest-item"><span class="dest-dot"></span>Torino</div>
+        <div class="dest-item"><span class="dest-dot"></span>Bari</div>
+        <div class="dest-item"><span class="dest-dot"></span>Rejkjavik</div>
+        <div class="dest-item"><span class="dest-dot"></span>Atina</div>
+        <div class="dest-item"><span class="dest-dot"></span>Krf</div>
+        <div class="dest-item"><span class="dest-dot"></span>Krit</div>
+        <div class="dest-item"><span class="dest-dot"></span>Kefalonija</div>
+        <div class="dest-item"><span class="dest-dot"></span>Rodos</div>
+        <div class="dest-item"><span class="dest-dot"></span>Zakintos</div>
+        <div class="dest-item"><span class="dest-dot"></span>Santorini</div>
+        <div class="dest-item"><span class="dest-dot"></span>Solun</div>
+        <div class="dest-item"><span class="dest-dot"></span>Nica</div>
+        <div class="dest-item"><span class="dest-dot"></span>Pariz</div>
+        <div class="dest-item"><span class="dest-dot"></span>Jerevan</div>
+        <div class="dest-item"><span class="dest-dot"></span>Baku</div>
+        <div class="dest-item"><span class="dest-dot"></span>Brisel</div>
+        <div class="dest-item"><span class="dest-dot"></span>Dubrovnik</div>
+        <div class="dest-item"><span class="dest-dot"></span>Zadar</div>
+        <div class="dest-item"><span class="dest-dot"></span>Kopenhagen</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dest-panel" id="panel-zagreb">
+      <div class="dest-card">
+        <div class="dest-header dest-from-color">
+          <div class="dest-header-icon">✈</div>
+          <div>
+            <div class="dest-header-title">Iz Zagreba</div>
+            <div class="dest-header-sub">Dostupne destinacije</div>
+          </div>
+        </div>
+        <div class="dest-list">
+        <div class="dest-item"><span class="dest-dot"></span>Solun</div>
+        <div class="dest-item"><span class="dest-dot"></span>Sofija</div>
+        <div class="dest-item"><span class="dest-dot"></span>Rim</div>
+        <div class="dest-item"><span class="dest-dot"></span>Piza</div>
+        <div class="dest-item"><span class="dest-dot"></span>Pariz</div>
+        <div class="dest-item"><span class="dest-dot"></span>Pafos</div>
+        <div class="dest-item"><span class="dest-dot"></span>Palma de Majorka</div>
+        <div class="dest-item"><span class="dest-dot"></span>Palermo</div>
+        <div class="dest-item"><span class="dest-dot"></span>Oslo</div>
+        <div class="dest-item"><span class="dest-dot"></span>Napulj</div>
+        <div class="dest-item"><span class="dest-dot"></span>Memmingen</div>
+        <div class="dest-item"><span class="dest-dot"></span>Malta</div>
+        <div class="dest-item"><span class="dest-dot"></span>Malme</div>
+        <div class="dest-item"><span class="dest-dot"></span>Malaga</div>
+        <div class="dest-item"><span class="dest-dot"></span>Lanzarote</div>
+        <div class="dest-item"><span class="dest-dot"></span>Kos</div>
+        <div class="dest-item"><span class="dest-dot"></span>Dizeldorf</div>
+        <div class="dest-item"><span class="dest-dot"></span>Krf</div>
+        <div class="dest-item"><span class="dest-dot"></span>Brisel</div>
+        <div class="dest-item"><span class="dest-dot"></span>Bazel</div>
+        <div class="dest-item"><span class="dest-dot"></span>Barselona</div>
+        <div class="dest-item"><span class="dest-dot"></span>Alikante</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dest-panel" id="panel-nis">
+      <div class="dest-card">
+        <div class="dest-header dest-from-color">
+          <div class="dest-header-icon">✈</div>
+          <div>
+            <div class="dest-header-title">Iz Niša</div>
+            <div class="dest-header-sub">Dostupne destinacije</div>
+          </div>
+        </div>
+        <div class="dest-list">
+        <div class="dest-item"><span class="dest-dot"></span>Malta</div>
+        <div class="dest-item"><span class="dest-dot"></span>Beč</div>
+        <div class="dest-item"><span class="dest-dot"></span>Minhen</div>
+        <div class="dest-item"><span class="dest-dot"></span>Stokholm</div>
+        <div class="dest-item"><span class="dest-dot"></span>Istanbul</div>
+        <div class="dest-item"><span class="dest-dot"></span>Bazel/Kolmar</div>
+        <div class="dest-item"><span class="dest-dot"></span>Dortmund</div>
+        <div class="dest-item"><span class="dest-dot"></span>Tivat</div>
+        <div class="dest-item"><span class="dest-dot"></span>Krf</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dest-panel" id="panel-beograd">
+      <div class="dest-card">
+        <div class="dest-header dest-from-color">
+          <div class="dest-header-icon">✈</div>
+          <div>
+            <div class="dest-header-title">Iz Beograda</div>
+            <div class="dest-header-sub">Dostupne destinacije</div>
+          </div>
+        </div>
+        <div class="dest-list">
+        <div class="dest-item"><span class="dest-dot"></span>Malta</div>
+        <div class="dest-item"><span class="dest-dot"></span>Kipar</div>
+        <div class="dest-item"><span class="dest-dot"></span>Sardinija (Algero)</div>
+        <div class="dest-item"><span class="dest-dot"></span>Sicilija (Palermo)</div>
+        <div class="dest-item"><span class="dest-dot"></span>Piza (Toskana)</div>
+        <div class="dest-item"><span class="dest-dot"></span>Rim</div>
+        <div class="dest-item"><span class="dest-dot"></span>Milano</div>
+        <div class="dest-item"><span class="dest-dot"></span>Minhen</div>
+        <div class="dest-item"><span class="dest-dot"></span>Dortmund</div>
+        <div class="dest-item"><span class="dest-dot"></span>Berlin</div>
+        <div class="dest-item"><span class="dest-dot"></span>Hamburg</div>
+        <div class="dest-item"><span class="dest-dot"></span>Stokholm</div>
+        <div class="dest-item"><span class="dest-dot"></span>Geteborg</div>
+        <div class="dest-item"><span class="dest-dot"></span>Barselona</div>
+        <div class="dest-item"><span class="dest-dot"></span>Madrid</div>
+        <div class="dest-item"><span class="dest-dot"></span>Alikante</div>
+        <div class="dest-item"><span class="dest-dot"></span>Krit</div>
+        <div class="dest-item"><span class="dest-dot"></span>Malme</div>
+        <div class="dest-item"><span class="dest-dot"></span>Nica</div>
+        <div class="dest-item"><span class="dest-dot"></span>Pariz</div>
+        <div class="dest-item"><span class="dest-dot"></span>Grenoble</div>
+        <div class="dest-item"><span class="dest-dot"></span>London</div>
+        <div class="dest-item"><span class="dest-dot"></span>Eindhoven</div>
+        <div class="dest-item"><span class="dest-dot"></span>Bazel</div>
+        <div class="dest-item"><span class="dest-dot"></span>Ženeva</div>
+        </div>
+      </div>
+    </div>
 </section>
 
 <!-- INSTAGRAM BANNER -->
@@ -662,11 +979,11 @@
 </footer>
 
 <script>
-function showCity(city) {
+function showCity(city, tab) {
   document.querySelectorAll('.dest-panel').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.dest-tab').forEach(t => t.classList.remove('active'));
   document.getElementById('panel-' + city).classList.add('active');
-  event.target.classList.add('active');
+  if (tab) tab.classList.add('active');
 }
 
 function sendInquiry() {
