@@ -74,18 +74,6 @@
     opacity: 0.055;
     animation: drift 8s ease-in-out infinite;
   }
-  .hero-main-image {
-    position: absolute; right: 70px; top: 50%;
-    transform: translateY(-50%);
-    width: min(42vw, 500px);
-    max-height: 380px;
-    object-fit: cover;
-    border-radius: 24px;
-    box-shadow: 0 24px 70px rgba(0,0,0,0.35);
-    z-index: 1;
-    opacity: 0.96;
-    pointer-events: none;
-  }
   @keyframes drift { 0%,100%{transform:translateY(-50%) translateX(0)} 50%{transform:translateY(-52%) translateX(-20px)} }
   .hero-wave {
     position: absolute; bottom: 0; left: 0; right: 0;
@@ -344,7 +332,6 @@
     .hero { padding: 40px 20px 100px; }
     .hero h1 { font-size: 34px; }
     .hero-wave { display: none; }
-    .hero-main-image { display: none; }
     .section { padding: 50px 20px; }
     .contact-grid { grid-template-columns: 1fr; }
     .stats-bar { gap: 24px; }
@@ -396,7 +383,6 @@
     <path d="M80 155 L220 200 L240 170 Z"/>
     <path d="M110 148 L165 90 L185 120 Z"/>
   </svg>
-  <img class="hero-main-image" src="51781fae-13f6-4626-981f-471b60f249bb.png"
   <div class="hero-content">
     <div class="hero-badge">✈ Stručnjaci za najniže avio karte</div>
     <h1>Letite dalje.<br><span>Platite manje.</span></h1>
